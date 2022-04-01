@@ -1,0 +1,11 @@
+# Ignore the node_modules directory
+node_modules/
+
+# The file containing environment variables 
+.env
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+# Ignore OSX folder attributes
+.DS_Store
