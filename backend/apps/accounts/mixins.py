@@ -13,9 +13,9 @@ class LoginRequired():
 
         token = request.headers['Authorization']
         now = datetime.datetime.now()
-        login_user = User.objects.filter(token = token, token_expires_gt = now)
+        login_user = User.objects.filter(token = token)
         if len(login_user) == 0:
             return error_response('This token is invalid or expired.', status.HTTP_401_UNAUTHORIZED)
 
-        request.login_user - login_user[0]
+        # request.login_user - login_user[0]
         return super().dispatch(request, *args, **kwargs)
