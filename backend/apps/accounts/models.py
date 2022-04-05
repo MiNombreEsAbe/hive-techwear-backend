@@ -39,3 +39,6 @@ class User(models.Model):
 
     def __str__(self):
         return self.email
+
+    def getExp(self): 
+        return self.token_expires

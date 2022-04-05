@@ -1,8 +1,10 @@
 from rest_framework import status
 import datetime
+import pytz
 from config.helpers.errors import error_response
 from .models import User
 
+utc = pytz.UTC
 
 # Add to login-required classes.
 class LoginRequired():
@@ -12,9 +14,9 @@ class LoginRequired():
             return error_response('Please set Auth-Token.', status.HTTP_401_UNAUTHORIZED)
 
         token = request.headers['Authorization']
-        now = datetime.datetime.now()
+        now = utc.localize(datetime.datetime.now())
         login_user = User.objects.filter(token = token)
-        if len(login_user) == 0:
+        if len(login_user) == 0 or login_user[0].getExp() < now:
             return error_response('This token is invalid or expired.', status.HTTP_401_UNAUTHORIZED)
 
         # request.login_user - login_user[0]
