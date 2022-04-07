@@ -19,6 +19,10 @@ class Review(models.Model):
     'Description', blank = True, null = True, max_length = 255, db_index = True
   )
 
+  body = models.TextField(
+    'Body', blank=False, null=False, max_length=1000, db_index=True
+  )
+
   image = CloudinaryField(
     "Product Image", blank = True, null = True
   )
