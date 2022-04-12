@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import re
+import json
 from django.db.models import query
 from django.shortcuts import render
 from rest_framework import generics, serializers, status
@@ -19,7 +20,8 @@ class CartList(LoginRequired, generics.ListAPIView):
     pagination_class = None
 
     def get_queryset(self):
-        return Cart.objects.filter(user = self.request.login_user.id)
+        authuser = json.loads(self.request.headers['Authorization'])
+        return Cart.objects.filter(user = authuser['id'])
 
 class CartAdd(LoginRequired, generics.CreateAPIView):
     querryset = Cart.objects.all()

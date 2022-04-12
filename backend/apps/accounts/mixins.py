@@ -1,6 +1,7 @@
 from rest_framework import status
 import datetime
 import pytz
+import json
 from config.helpers.errors import error_response
 from .models import User
 
@@ -13,7 +14,9 @@ class LoginRequired():
         if 'Authorization' not in request.headers:
             return error_response('Please set Auth-Token.', status.HTTP_401_UNAUTHORIZED)
 
-        token = request.headers['Authorization']
+
+        authJson = json.loads(request.headers['Authorization'])
+        token = authJson['token']
         # now = utc.localize(datetime.datetime.now())
         login_user = User.objects.filter(token = token)
         # if len(login_user) == 0 or login_user[0].getExp() < now:
