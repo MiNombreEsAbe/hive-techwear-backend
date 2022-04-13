@@ -14,7 +14,6 @@ class LoginRequired():
         if 'Authorization' not in request.headers:
             return error_response('Please set Auth-Token.', status.HTTP_401_UNAUTHORIZED)
 
-
         authJson = json.loads(request.headers['Authorization'])
         token = authJson['token']
         # now = utc.localize(datetime.datetime.now())
