@@ -21,28 +21,30 @@ class CartList(LoginRequired, generics.ListAPIView):
 
     def get_queryset(self):
         authuser = json.loads(self.request.headers['Authorization'])
-        return Cart.objects.filter(user = authuser['id'])
+        return Cart.objects.filter(user = int(authuser['id']))
 
 class CartAdd(LoginRequired, generics.CreateAPIView):
     querryset = Cart.objects.all()
     serializer_class = CartSerializer
 
     def post(self, request, *args, **kwargs):
-        
+        print(request.data)
+        authuser = json.loads(self.request.headers['Authorization'])
+        user_id = int(authuser['id'])
         self.get_serializer_class().validate(self, request.data)
 
-        product = Product.objects.filter(id=request.data['product']).first()
+        product = Product.objects.filter(id=int(request.data['product'])).first()
 
         if (product is None):
             return error_response('product not found.', status.HTTP_400_BAD_REQUEST)
 
-        cart = Cart.objects.filter(product_id=request.data['product'], user_id=request.login_user.id).first()
+        cart = Cart.objects.filter(product_id=int(request.data['product']), user_id=user_id).first()
 
         if (cart is not None):
             return error_response('Cart already existed.', status.HTTP_400_BAD_REQUEST)
 
         new_cart = Cart.objects.create(
-            user = User.objects.get(id=request.login_user.id),
+            user = User.objects.get(id=user_id),
             product = product,
             quantity = int( request.data['quantity'] )
         )
@@ -63,7 +65,7 @@ class CartUpdate(LoginRequired, generics.UpdateAPIView):
         quantity = int(request.data['quantity'])
 
         id = self.kwargs['id']
-        cart = Cart.objects.filter(id=id)
+        cart = Cart.objects.filter(id=int(id))
         
         if cart.first() is None:
             return error_response('Cart not found.', status.HTTP_400_BAD_REQUEST)
