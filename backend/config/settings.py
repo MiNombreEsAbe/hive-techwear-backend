@@ -146,7 +146,7 @@ USE_TZ = True
 
 # STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root")
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # MEDIA_URL = "/media/"
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
