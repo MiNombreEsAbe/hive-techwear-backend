@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-iyg%!l)7hk7s7@d8=@a@g36*bx+zisiz8&74&*rq)7dmuf)x^^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backapihive.herokuapp.com','localhost', 'hivetechwearbackend.herokuapp.com']
+ALLOWED_HOSTS = ['backapihive.herokuapp.com','localhost', 'hivetechwearbackend.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -66,9 +66,11 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'https://hivetechwearfrontend.herokuapp.com/',
-]
+CORS_ALLOW_ALL_ORIGINS = True
+
+# CORS_ALLOWED_ORIGINS = [
+#     'https://hivetechwearfrontend.herokuapp.com/',
+# ]
 
 ROOT_URLCONF = 'config.urls'
 
