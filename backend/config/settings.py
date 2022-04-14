@@ -67,7 +67,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://hivetechwearfrontend.herokuapp.com/'
+    'https://hivetechwearfrontend.herokuapp.com/',
 ]
 
 ROOT_URLCONF = 'config.urls'
