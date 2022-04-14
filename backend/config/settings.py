@@ -29,9 +29,10 @@ SECRET_KEY = 'django-insecure-iyg%!l)7hk7s7@d8=@a@g36*bx+zisiz8&74&*rq)7dmuf)x^^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backapihive.herokuapp.com','localhost']
-CORS_ALLOW_ALL_ORIGINS = True
-
+ALLOWED_HOSTS = ['backapihive.herokuapp.com','localhost', 'https://hivetechwearbackend.herokuapp.com/']
+CORS_ALLOWED_ORIGINS = [
+    'https://hivetechwearfrontend.herokuapp.com/'
+]
 
 # Application definition
 
