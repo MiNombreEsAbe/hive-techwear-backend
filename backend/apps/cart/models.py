@@ -17,7 +17,7 @@ class Cart(models.Model):
     )
     
     quantity = models.IntegerField (
-        'Quantity', blank=False, null=False
+        'Quantity', blank=True, null=True, default=0
     )
 
     @property
