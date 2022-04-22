@@ -12,7 +12,7 @@ Check out [FRONTEND LIVE DEMO](https://restro-cafe-frontend-alexis.herokuapp.com
 
 ![Capture](https://raw.githubusercontent.com/MiNombreEsAbe/hive-techwear-frontend/main/HIVE.PNG)
 
-Check out [API LIVE DEMO](https://restro-cafe-backend-alexis.herokuapp.com/) here!!
+Check out [API LIVE DEMO]() here!!
 
 ## Tech used
 
