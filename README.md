@@ -8,11 +8,11 @@ E-Commerce App, with a frontend built in React & Redux and a backend built in Dj
 
 **This App uses a Heroku free plan, so I am afraid that it takes time to load the pages.**
 
-Check out [FRONTEND LIVE DEMO](https://restro-cafe-frontend-alexis.herokuapp.com/) here!!
+Check out [FRONTEND LIVE DEMO](https://hivetechwearfrontend.herokuapp.com) here!!
 
 ![Capture](https://raw.githubusercontent.com/MiNombreEsAbe/hive-techwear-frontend/main/HIVE.PNG)
 
-Check out [API LIVE DEMO]() here!!
+Check out [API LIVE DEMO](https://hivetechwearbackend.herokuapp.com/) here!!
 
 ## Tech used
 
